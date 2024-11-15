@@ -9,7 +9,7 @@ The model used is an SGD Classifier.
 </p>
 
 <p align="center">
-  <img height="350" width="600" src="https://github.com/user-attachments/assets/6ad2f760-4045-437d-979f-d2914275da57">
+  <img height="350" width="600" src="https://github.com/user-attachments/assets/c9dff5a9-bd6b-4ab8-8a42-45996d7883af">
 </p>
 
 <p align="center">
