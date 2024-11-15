@@ -1,0 +1,107 @@
+body {
+    height: 100vh;
+    background: rgb(85,9,121);
+    background: linear-gradient(90deg, rgba(85,9,121,1) 35%, rgba(91,0,255,1) 100%);
+    font-family: 'Poppins', sans-serif;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.center-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 2em;
+    color: aliceblue;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-group {
+    margin: 10px;
+}
+
+label {
+    color: aliceblue;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+input, button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+input{
+    padding: 0;
+}
+
+button {
+    background-color: #007dff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0067d4;
+}
+
+#predictionResult {
+    color: #66FF00;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#fileInput {
+    display: none;
+}
+
+/* Style the custom button */
+.custom-file-button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Custom button on hover */
+.custom-file-button:hover {
+    background-color: #45a049;
+}
+
+
+/* Preview image (optional) */
+#imagePreview {
+    max-width: 100%;
+    max-height: 80px;
+    display: none;
+   
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Identifier</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="center-div">
+        <h2>Number Identifier</h2>
+        <form id="predictionForm">    
+            <div class="form-group">
+                <input type="file" id="fileInput" accept="image/*" capture="camera" onchange="previewImage()">
+               
+                <label for="fileInput" class="custom-file-button">Enter the picture of your number </label>
+            
+                
+            </div>
+            <div class="form-group">
+                <button onclick="predictNumber(event)">
+                    Verify
+                </button> 
+            </div>
+        </form>
+        <div>
+            <img id="imagePreview" src="" alt="Image preview">
+        </div>
+        <p id="predictionResult"></p>
+    </div>
+    <script>
+        // Preview the image after selecting a file
+        function previewImage() {
+            const fileInput = document.getElementById('fileInput');
+            const preview = document.getElementById('imagePreview');
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+                preview.style.display = 'block';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        };
+
+        function predictNumber(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const fileInput = document.getElementById("fileInput");
+            if (!fileInput || !fileInput.files.length) {
+                alert("Please select an image first.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            console.log("Sending prediction request...");
+
+            fetch("http://127.0.0.1:8080/predict", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {return response.json();})
+            .then(data => {
+                console.log("Response data:", data);  // Log the response data
+                if (data.number_prediction !== undefined) {
+                    let resultText = "The number is: " + data.number_prediction;
+                    document.getElementById("predictionResult").innerHTML = resultText;
+                } else {
+                    document.getElementById("predictionResult").innerHTML = "Prediction error: " + JSON.stringify(data);
+                }
+            })
+            .catch(error => {
+                console.error("Error in fetch request:", error);
+                document.getElementById("predictionResult").innerHTML = "Error in prediction request.";
+            });
+        }
+
+
+    </script>
+</body>
+</html>
