@@ -1,7 +1,9 @@
 # Number Identifier
 ## Overview
 
-This project uses the Scikit-Learn and Pandas libraries to build an SGD Classifier model to identify a number that you insert. The model is trained in the MNIST dataset where it learns patterns in the number's writing features to predict the number.
+This project uses the Scikit-Learn and Pandas libraries to build an SGD Classifier model to identify a number that you insert. 
+<be>
+The model is trained in the MNIST dataset where it learns patterns in the number's writing features to predict the number.
 
 <p align="center">
   <img height="350" width="600" src="https://github.com/user-attachments/assets/9c446aec-1852-4ae6-889c-0d9823805866">
